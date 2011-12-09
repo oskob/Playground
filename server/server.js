@@ -4,7 +4,7 @@ var server = require('http').createServer(handler)
 ,	Player = require('Player');
 ;
 
-server.listen(80);
+server.listen(666);
 
 var players = [];
 
