@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost');
+var socket = io.connect('http://' + window.location.hostname);
 var players = [];
 var player = null;
 var id = -1;
