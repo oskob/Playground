@@ -1,4 +1,4 @@
-var socket = io.connect('http://' + window.location.hostname);
+var socket = io.connect(null, {port: 666});
 var players = [];
 var player = null;
 var id = -1;
@@ -13,6 +13,7 @@ socket.on('init', function (data)
 
 socket.on('players', function(data)
 {
+	console.log("players");
 	newPlayers(data);
 	player = players[id];
 	drawPlayers();
@@ -52,14 +53,13 @@ function drawPlayers()
 window.onload = function()
 {
 	stage = document.getElementById('stage');
+	console.log(socket.emit);
 	socket.emit('init');
-	
 	
 	var input = document.getElementById('input');
 	input.focus();
 	input.onkeydown = function(e)
 	{
-		console.log(e.keyCode);
 		if(e.keyCode == 13)
 		{
 			console.log(input.value);

@@ -40,8 +40,10 @@ function broadcast(action, data)
 
 io.sockets.on('connection', function (socket) 
 {
+	console.log("okej");
 	socket.on('init', function (data) 
 	{
+		console.log("jdska");
 		var player = new Player(players.length, socket);
 		players.push(player);
 		
